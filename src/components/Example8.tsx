@@ -5,7 +5,8 @@ export function Example8() {
 	}
   return (
 		<div>
-			{person}
+			<p>{person.name}</p>
+			<p>{person.age}</p>
 		</div>
 	)
 }

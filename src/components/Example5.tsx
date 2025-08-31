@@ -1,9 +1,9 @@
 export function Example5() {
   const fruits = ['Banana', 'Apple', 'Orange'];
   return (
-    <ul class="list">
+    <ul className="list">
       {fruits.map((item) =>
-        <li>{item}</li>
+        <li key={item}>{item}</li>
       )}
     </ul>
   )
