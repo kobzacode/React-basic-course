@@ -3,16 +3,16 @@ import { User, type IUser } from "./User";
 
 interface Props {
   users: IUser[];
-  onGreet: (name: string) => void;
+  onUpdateRole: (id: number, newRole: string) => void;
 }
 
-export const UserList: FC<Props> = ({ users, onGreet }) => {
+export const UserList: FC<Props> = ({ users, onUpdateRole }) => {
   return (
     <div>
       <h1>User list</h1>
       <div>
         {users.map((user, index) => (
-          <User key={index} data={user} onGreet={onGreet} />
+          <User key={index} data={user} onUpdateRole={onUpdateRole} />
         ))}
       </div>
     </div>
