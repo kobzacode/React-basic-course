@@ -1,17 +1,23 @@
 import type { FC, SelectHTMLAttributes } from "react";
 
 interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
-  options: string[];
+  htmlFor?: string;
+  label?: string;
+  options: (string | number)[];
 }
 
-export const Select: FC<Props> = ({ options, ...rest }) => {
+export const Select: FC<Props> = ({ htmlFor, label, options, ...rest }) => {
   return (
-    <select {...rest}>
-      {options.map((option) => (
-        <option key={option} value={option}>
-          {option}
-        </option>
-      ))}
-    </select>
+    <>
+      {label && <label htmlFor={htmlFor}>{label}</label>}
+
+      <select id={htmlFor} {...rest}>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </>
   );
 };
